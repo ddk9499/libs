@@ -26,8 +26,6 @@ fun RepositoryHandler.setupForProject() {
             "android.arch"
     )
 
-    maven(url = "https://maven.fabric.io/public").ensureGroups("io.fabric.tools")
-
     maven(url = "https://kotlin.bintray.com/kotlinx").ensureModulesByRegexp("org.jetbrains.kotlinx:kotlinx-serialization\\-.*")
 
     maven(url = "https://oss.sonatype.org/content/repositories/snapshots").ensureGroups("org.androidannotations")

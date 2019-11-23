@@ -9,3 +9,5 @@ object ProjectVersions {
     const val androidSdk = 29
     const val thisLibrary = "0.0.1"
 }
+
+val isDevVersion = ProjectVersions.thisLibrary.contains("-dev-")
