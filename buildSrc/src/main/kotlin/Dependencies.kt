@@ -12,6 +12,7 @@ object Libs {
 
     val kotlin = Kotlin
     val ktorm = Ktorm
+    val toothpick = Toothpick
 
     object Kotlin {
         const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}"
@@ -20,5 +21,10 @@ object Libs {
     object Ktorm {
         private const val version = "2.6"
         const val pgsql = "me.liuwj.ktorm:ktorm-support-postgresql:$version"
+    }
+
+    object Toothpick {
+        private const val version = "3.1.0"
+        const val runtime = "com.github.stephanenicolas.toothpick:toothpick-runtime:$version"
     }
 }

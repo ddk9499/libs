@@ -1,1 +1,4 @@
-arrayOf(":ktorm-postgresql").forEach { include(":modules$it") }
+arrayOf(
+    ":ktorm-postgresql",
+    ":toothpick-file-properties"
+).forEach { include(":modules$it") }
