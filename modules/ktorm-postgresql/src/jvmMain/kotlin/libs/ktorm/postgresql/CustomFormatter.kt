@@ -12,7 +12,7 @@ import me.liuwj.ktorm.support.postgresql.PostgreSqlFormatter
  */
 
 class CustomFormatter(database: Database, beautifySql: Boolean, indentSize: Int) :
-        PostgreSqlFormatter(database, beautifySql, indentSize) {
+    PostgreSqlFormatter(database, beautifySql, indentSize) {
 
     override fun <T : Any> visitScalar(expr: ScalarExpression<T>): ScalarExpression<T> {
         val result = if (expr is ContainsExpression<*>) visitContains(expr)

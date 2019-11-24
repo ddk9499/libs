@@ -13,17 +13,17 @@ fun RepositoryHandler.setupForProject() {
     mavenCentral().ensureGroupsStartingWith("com.jakewharton.", "com.squareup.")
 
     google().ensureGroups(
-            "com.google.gms",
-            "com.google.firebase",
-            "io.fabric.sdk.android",
-            "com.crashlytics.sdk.android",
-            "org.chromium.net"
+        "com.google.gms",
+        "com.google.firebase",
+        "io.fabric.sdk.android",
+        "com.crashlytics.sdk.android",
+        "org.chromium.net"
     ).ensureGroupsStartingWith(
-            "androidx.",
-            "com.android.",
-            "com.google.android.",
-            "com.google.ar",
-            "android.arch"
+        "androidx.",
+        "com.android.",
+        "com.google.android.",
+        "com.google.ar",
+        "android.arch"
     )
 
     maven(url = "https://kotlin.bintray.com/kotlinx").ensureModulesByRegexp("org.jetbrains.kotlinx:kotlinx-serialization\\-.*")

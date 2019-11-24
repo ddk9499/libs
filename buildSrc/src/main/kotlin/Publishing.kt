@@ -15,23 +15,23 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinJvmCompilation
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinOnlyTarget
 
 inline fun KotlinMultiplatformExtension.jvmWithPublication(
-        project: Project,
-        crossinline configure: KotlinOnlyTarget<KotlinJvmCompilation>.() -> Unit = { }
+    project: Project,
+    crossinline configure: KotlinOnlyTarget<KotlinJvmCompilation>.() -> Unit = { }
 ) = jvm {
     mavenPublication { artifactId = project.name }; configure()
 }
 
 inline fun KotlinMultiplatformExtension.androidWithPublication(
-        project: Project,
-        crossinline configure: KotlinAndroidTarget.() -> Unit = { }
+    project: Project,
+    crossinline configure: KotlinAndroidTarget.() -> Unit = { }
 ) = android {
     publishLibraryVariants("release")
     mavenPublication { artifactId = project.name }; configure()
 }
 
 inline fun KotlinMultiplatformExtension.metadataPublication(
-        project: Project,
-        crossinline configure: KotlinOnlyTarget<KotlinCommonCompilation>.() -> Unit = { }
+    project: Project,
+    crossinline configure: KotlinOnlyTarget<KotlinCommonCompilation>.() -> Unit = { }
 ) = metadata {
     mavenPublication { artifactId = "${project.name}-metadata" }; configure()
 }
