@@ -19,6 +19,6 @@ object Libs {
 
     object Ktorm {
         private const val version = "2.6"
-        const val ktormPGSQL = "me.liuwj.ktorm:ktorm-support-postgresql:$version"
+        const val pgsql = "me.liuwj.ktorm:ktorm-support-postgresql:$version"
     }
 }
