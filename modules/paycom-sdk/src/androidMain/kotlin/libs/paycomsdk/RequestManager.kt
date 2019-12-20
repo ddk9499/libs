@@ -10,8 +10,6 @@ import libs.paycomsdk.entities.*
 
 interface RequestManager {
 
-//    val defaults: DefaultRequestOptions
-
     fun createCard(request: CreateCardRequest): Result<CardResponse>
     fun getVerifyCode(request: GetVerifyCodeRequest): Result<GetVerifyCodeResponse>
     fun verify(request: VerifyRequest): Result<CardResponse>

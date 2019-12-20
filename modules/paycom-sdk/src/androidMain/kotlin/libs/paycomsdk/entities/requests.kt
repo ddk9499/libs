@@ -1,7 +1,5 @@
 package libs.paycomsdk.entities
 
-import org.json.JSONObject
-
 /**
  * Created at December 2019
  * @project libs
@@ -24,5 +22,5 @@ data class VerifyRequest(val token: String, val code: String) : PaycomRequests()
 
 data class CreateTxAndPayRequest(val amount: Int, val token: String) : PaycomRequests()
 
-internal data class CreateTxRequest(val amount: Int, val account: JSONObject = JSONObject()) : PaycomRequests()
+internal data class CreateTxRequest(val amount: Int, val account: Map<String, Any> = emptyMap()) : PaycomRequests()
 internal data class PayTxRequest(val id: String, val token: String) : PaycomRequests()
