@@ -19,8 +19,3 @@ data class CreateCardRequest(
 data class GetVerifyCodeRequest(val token: String) : PaycomRequests()
 
 data class VerifyRequest(val token: String, val code: String) : PaycomRequests()
-
-data class CreateTxAndPayRequest(val amount: Int, val token: String) : PaycomRequests()
-
-internal data class CreateTxRequest(val amount: Int, val account: Map<String, Any> = emptyMap()) : PaycomRequests()
-internal data class PayTxRequest(val id: String, val token: String) : PaycomRequests()

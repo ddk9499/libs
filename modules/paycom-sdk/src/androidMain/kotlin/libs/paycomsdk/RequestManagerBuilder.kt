@@ -15,15 +15,13 @@ class RequestManagerBuilder {
     private var okHttpClient: OkHttpClient? = null
     private var defaults = DefaultRequestOptions()
     private var merchantId: String? = null
-    private var merchantPassword: String? = null
 
     fun okHttpClient(client: OkHttpClient) = apply {
         okHttpClient = client
     }
 
-    fun setMerchantData(id: String, password: String) = apply {
+    fun setMerchantData(id: String) = apply {
         merchantId = id
-        merchantPassword = password
     }
 
     fun isLoggable(state: Boolean) = apply {
@@ -35,12 +33,9 @@ class RequestManagerBuilder {
     }
 
     fun build(): RequestManager {
-        assert(merchantId != null && merchantPassword != null) { "You must call setMerchantData() before calling build()." }
+        assert(merchantId != null) { "You must call setMerchantData() before calling build()." }
 
-        return RealRequestManager(
-            defaults.copy(merchantId = merchantId!!, merchantPassword = merchantPassword!!),
-            okHttpClient ?: buildOkHttpClient()
-        )
+        return RealRequestManager(defaults.copy(merchantId = merchantId!!), okHttpClient ?: buildOkHttpClient())
     }
 
     private fun buildOkHttpClient(): OkHttpClient = OkHttpClient.Builder().also {

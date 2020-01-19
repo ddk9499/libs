@@ -2,7 +2,6 @@ package libs.paycomsdk
 
 import android.util.Log
 import com.google.gson.Gson
-import com.google.gson.JsonElement
 import libs.paycomsdk.entities.*
 import libs.paycomsdk.exceptions.DetailedException
 import libs.paycomsdk.exceptions.NetworkException
@@ -50,22 +49,9 @@ internal class RealRequestManager(
         return checkErrorAndReturn(response)
     }
 
-    override fun createAndPayTx(request: CreateTxAndPayRequest): Result<TxResponse> {
-        val createTxResponse = callApiMethod(Methods.RECEIPTS_CREATE, CreateTxRequest(request.amount), true)
-        val createTxResult = checkErrorAndReturn<CreateTxResponse>(createTxResponse)
-        if (createTxResult.isFailure) {
-            return Result.failure(createTxResult.exceptionOrNull()!!)
-        }
-
-        val txId = createTxResult.getOrNull()!!.id
-        val response = callApiMethod(Methods.RECEIPTS_PAY, PayTxRequest(txId, request.token))
-        return checkErrorAndReturn(response)
-    }
-
-    private fun callApiMethod(method: Methods, requestParams: PaycomRequests, isMerchantCall: Boolean = false): Response? {
+    private fun callApiMethod(method: Methods, requestParams: PaycomRequests): Response? {
         val params = when (requestParams) {
             is CreateCardRequest -> requestParams.copy(amount = requestParams.amount * 100)
-            is CreateTxRequest -> requestParams.copy(amount = requestParams.amount * 100)
             else -> requestParams
         }
         val body = gson {
@@ -73,8 +59,7 @@ internal class RealRequestManager(
             "params" to gson.toJsonTree(params)
         }.toString().toRequestBody(JSON)
         val request = with(Request.Builder()) {
-            if (isMerchantCall.not()) header("X-Auth", defaults.merchantId)
-            else header("X-Auth", "${defaults.merchantId}:${defaults.merchantPassword}")
+            header("X-Auth", defaults.merchantId)
             url(url)
             post(body)
             build()
@@ -95,8 +80,6 @@ internal class RealRequestManager(
             if (baseResponse.error != null) return Result.failure(DetailedException(baseResponse.error.message))
             val result = when (T::class) {
                 CardResponse::class -> gson.fromJson<CardResponse>(baseResponse.result.get("card"))
-                CreateTxResponse::class -> gson.fromJson<CreateTxResponse>(baseResponse.result.get("receipt"))
-                TxResponse::class -> checkPaidStatus(baseResponse.result.get("receipt"))
                 else -> gson.fromJson<T>(baseResponse.result)
             }
 
@@ -104,11 +87,6 @@ internal class RealRequestManager(
         }
 
         return Result.failure(NetworkException)
-    }
-
-    private fun checkPaidStatus(element: JsonElement): TxResponse {
-        val state = element.asJsonObject.get("state").asInt
-        return TxResponse(state == 4)
     }
 
     private fun loge(e: Throwable) {

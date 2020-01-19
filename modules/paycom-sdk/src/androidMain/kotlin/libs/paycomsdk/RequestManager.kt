@@ -13,7 +13,6 @@ interface RequestManager {
     fun createCard(request: CreateCardRequest): Result<CardResponse>
     fun getVerifyCode(request: GetVerifyCodeRequest): Result<GetVerifyCodeResponse>
     fun verify(request: VerifyRequest): Result<CardResponse>
-    fun createAndPayTx(request: CreateTxAndPayRequest): Result<TxResponse>
 
     companion object {
         operator fun invoke(builder: RequestManagerBuilder.() -> Unit): RequestManager =

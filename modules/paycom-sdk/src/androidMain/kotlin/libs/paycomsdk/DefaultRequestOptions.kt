@@ -9,7 +9,6 @@ package libs.paycomsdk
 
 data class DefaultRequestOptions(
     val merchantId: String = "",
-    val merchantPassword: String = "",
     val isSandBoxMode: Boolean? = null,
     val isLoggable: Boolean = isSandBoxMode ?: false
 )

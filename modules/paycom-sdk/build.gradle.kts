@@ -16,7 +16,6 @@ kotlin {
     sourceSets {
         getByName("androidMain").dependencies {
             api(kotlin("stdlib"))
-            api(Libs.kotlin.coroutinesCore)
             api(Libs.network.okHttp)
             api(Libs.network.logging)
             implementation(Libs.gson)

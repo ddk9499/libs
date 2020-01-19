@@ -28,7 +28,3 @@ data class CardResponse(
 ) : PaycomResponse()
 
 data class GetVerifyCodeResponse(val sent: Boolean, val phone: String, val wait: Int) : PaycomResponse()
-
-data class TxResponse(val isPaid: Boolean) : PaycomResponse()
-
-internal data class CreateTxResponse(@SerializedName("_id") val id: String) : PaycomResponse()
