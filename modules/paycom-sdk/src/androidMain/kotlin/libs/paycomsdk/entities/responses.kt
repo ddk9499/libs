@@ -20,8 +20,8 @@ internal data class Error(val message: String = "", val code: Int = Int.MIN_VALU
 sealed class PaycomResponse
 
 data class CardResponse(
-    val cardNumber: String,
-    val cardExpire: String,
+    @SerializedName("number") val cardNumber: String,
+    @SerializedName("expire") val cardExpire: String,
     val token: String,
     val recurrent: Boolean,
     val verify: Boolean
