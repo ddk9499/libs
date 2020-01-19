@@ -1,7 +1,5 @@
 package libs.paycomsdk
 
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
 
 /**
  * Created at December 2019
@@ -10,7 +8,6 @@ import kotlinx.coroutines.Dispatchers
  */
 
 data class DefaultRequestOptions(
-    val dispatcher: CoroutineDispatcher = Dispatchers.IO,
     val merchantId: String = "",
     val merchantPassword: String = "",
     val isSandBoxMode: Boolean? = null,

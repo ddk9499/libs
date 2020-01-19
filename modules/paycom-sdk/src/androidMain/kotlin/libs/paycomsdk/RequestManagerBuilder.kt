@@ -1,6 +1,5 @@
 package libs.paycomsdk
 
-import kotlinx.coroutines.CoroutineDispatcher
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import java.util.concurrent.TimeUnit
@@ -25,15 +24,6 @@ class RequestManagerBuilder {
     fun setMerchantData(id: String, password: String) = apply {
         merchantId = id
         merchantPassword = password
-    }
-
-    /**
-     * The default [CoroutineDispatcher] to run image requests on.
-     *
-     * Default: [Dispatchers.IO]
-     */
-    fun dispatcher(dispatcher: CoroutineDispatcher) = apply {
-        defaults = this.defaults.copy(dispatcher = dispatcher)
     }
 
     fun isLoggable(state: Boolean) = apply {
