@@ -1,6 +1,11 @@
 arrayOf(
     ":ktorm-postgresql",
     ":toothpick-file-properties",
-    ":collections",
-    ":paycom-sdk"
+    ":collections"
 ).forEach { include(":modules$it") }
+
+arrayOf(
+    ":paycom-base",
+    ":paycom-android",
+    ":paycom-backend"
+).forEach { include(":modules:paycom$it") }

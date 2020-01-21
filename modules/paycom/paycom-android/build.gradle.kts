@@ -1,7 +1,6 @@
 plugins {
     id("com.android.library")
     kotlin("multiplatform")
-    id("org.jetbrains.kotlin.plugin.serialization") version Versions.kotlin
     `maven-publish`
     id("com.jfrog.bintray")
 }
@@ -16,9 +15,7 @@ kotlin {
     sourceSets {
         getByName("androidMain").dependencies {
             api(kotlin("stdlib"))
-            api(Libs.network.okHttp)
-            api(Libs.network.logging)
-            implementation(Libs.gson)
+            api(project(":modules:paycom:paycom-base"))
         }
     }
 }
