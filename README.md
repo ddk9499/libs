@@ -10,6 +10,8 @@ us don't write boilerplate code and solve routine tasks.
 Ktorm PostgreSQL dialect.
 - **[Toothpick File Properties:](modules/toothpick-file-properties)** 
 Toothpick module, for binding properties which saved in file.  
+- **Paycom SDK([Android](modules/paycom/paycom-android), [Backend](modules/paycom/paycom-backend):** 
+[Paycom](http://paycom.uz) SDKs for Android and backend development.  
 
 
 ## Download
@@ -28,6 +30,8 @@ Make sure you have `jcenter()` in the repositories defined in your project's
 implementation("uz.dkamaloff.libs:collections:$libs_version")
 implementation("uz.dkamaloff.libs:ktorm-postgresql:$libs_version")
 implementation("uz.dkamaloff.libs:toothpick-file-properties:$libs_version")
+implementation("uz.dkamaloff.libs:paycom-android:$libs_version")
+implementation("uz.dkamaloff.libs:paycom-server:$libs_version")
 ```
 
 </details>
