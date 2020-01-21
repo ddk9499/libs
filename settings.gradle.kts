@@ -1,6 +1,5 @@
 arrayOf(
     ":ktorm-postgresql",
     ":toothpick-file-properties",
-    ":collections",
-    ":paycom-sdk"
+    ":collections"
 ).forEach { include(":modules$it") }
