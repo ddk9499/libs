@@ -6,5 +6,6 @@ arrayOf(
 
 arrayOf(
     ":paycom-base",
-    ":paycom-android"
+    ":paycom-android",
+    ":paycom-backend"
 ).forEach { include(":modules:paycom$it") }
