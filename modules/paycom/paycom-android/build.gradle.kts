@@ -16,9 +16,7 @@ kotlin {
     sourceSets {
         getByName("androidMain").dependencies {
             api(kotlin("stdlib"))
-            api(Libs.network.okHttp)
-            api(Libs.network.logging)
-            implementation(Libs.gson)
+            api(project(":modules:paycom:paycom-base"))
         }
     }
 }
