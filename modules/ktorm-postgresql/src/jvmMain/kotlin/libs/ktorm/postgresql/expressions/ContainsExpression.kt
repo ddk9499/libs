@@ -12,11 +12,11 @@ import me.liuwj.ktorm.schema.SqlType
  */
 
 data class ContainsExpression<T : Any>(
-        val left: ScalarExpression<*>,
-        val values: Collection<T>,
-        override val sqlType: SqlType<Boolean> = BooleanSqlType,
-        override val isLeafNode: Boolean = false,
-        override val extraProperties: Map<String, Any> = emptyMap()
+    val left: ScalarExpression<*>,
+    val values: Collection<T>,
+    override val sqlType: SqlType<Boolean> = BooleanSqlType,
+    override val isLeafNode: Boolean = false,
+    override val extraProperties: Map<String, Any> = emptyMap()
 ) : ScalarExpression<Boolean>()
 
 infix fun <T : List<*>> ColumnDeclaring<T>.contains(values: T): ContainsExpression<T> {

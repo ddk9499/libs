@@ -10,7 +10,6 @@ kotlin {
     sourceSets {
         getByName("jvmMain").dependencies {
             api(kotlin("stdlib"))
-            api(Libs.ktorm.pgsql)
         }
     }
 }

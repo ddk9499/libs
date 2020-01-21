@@ -27,9 +27,9 @@ class EnumSqlType<ENUM : Enum<ENUM>>(private val klass: KClass<ENUM>) : SqlType<
 object LongArraySqlType : SqlType<List<Long>>(Types.ARRAY, "longArray") {
 
     override fun doGetResult(rs: ResultSet, index: Int): List<Long>? =
-            (rs.getArray(index).array as Array<*>)
-                    .filterIsInstance<Int>()
-                    .map { it.toLong() }
+        (rs.getArray(index).array as Array<*>)
+            .filterIsInstance<Int>()
+            .map { it.toLong() }
 
     override fun doSetParameter(ps: PreparedStatement, index: Int, parameter: List<Long>) {
         val array = ps.connection.createArrayOf("BIGINT", parameter.toTypedArray())

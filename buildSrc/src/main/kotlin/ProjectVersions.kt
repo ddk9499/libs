@@ -7,5 +7,7 @@
 object ProjectVersions {
     const val androidBuildTools = "29.0.0"
     const val androidSdk = 29
-    const val thisLibrary = "0.0.1"
+    const val thisLibrary = "0.0.2"
 }
+
+val isDevVersion = ProjectVersions.thisLibrary.contains("-dev-")

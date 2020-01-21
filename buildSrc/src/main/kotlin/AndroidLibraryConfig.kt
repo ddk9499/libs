@@ -3,8 +3,7 @@
  * @project libs
  * @author Dostonbek Kamalov (a.k.a @ddk9499)
  */
-/*
-import org.gradle.api.Action
+
 import com.android.build.gradle.LibraryExtension as AndroidLibraryExtension
 
 
@@ -28,10 +27,9 @@ fun AndroidLibraryExtension.setDefaults() {
         res.srcDir("src/androidMain/res")
     }
     // TODO replace with https://issuetracker.google.com/issues/72050365 once released.
-    libraryVariants.all(Action {
+    libraryVariants.all {
         generateBuildConfigProvider.configure {
             enabled = false
         }
-    })
+    }
 }
-*/
