@@ -1,6 +1,7 @@
 arrayOf(
     ":ktorm-postgresql",
     ":toothpick-file-properties",
+    ":toothpick-viewmodel-ext",
     ":collections"
 ).forEach { include(":modules$it") }
 

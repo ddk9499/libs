@@ -6,9 +6,14 @@
 
 object Libs {
 
+    val androidX = AndroidX
     val ktorm = Ktorm
     val toothpick = Toothpick
     val network = Network
+
+    object AndroidX {
+        const val viewmodel = "androidx.lifecycle:lifecycle-viewmodel:2.2.0"
+    }
 
     object Ktorm {
         private const val version = "2.6"
@@ -18,6 +23,7 @@ object Libs {
     object Toothpick {
         private const val version = "3.1.0"
         const val runtime = "com.github.stephanenicolas.toothpick:toothpick-runtime:$version"
+        const val ktp = "com.github.stephanenicolas.toothpick:ktp:$version"
     }
 
     object Network {
