@@ -9,7 +9,9 @@ us don't write boilerplate code and solve routine tasks.
 - **[Ktorm PostgreSQL:](modules/ktorm-postgresql)** Some extensions for
 Ktorm PostgreSQL dialect.
 - **[Toothpick File Properties:](modules/toothpick-file-properties)** 
-Toothpick module, for binding properties which saved in file.  
+Toothpick module, for binding properties which saved in file.
+- **[Toothpick ViewModel Extensions:](modules/toothpick-viewmodel-ext)**
+Extension functions for inject [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel).
 - **Paycom SDK([Android](modules/paycom/paycom-android), [Backend](modules/paycom/paycom-backend)):** 
 [Paycom](http://paycom.uz) SDKs for Android and backend development.  
 
@@ -30,6 +32,7 @@ Make sure you have `jcenter()` in the repositories defined in your project's
 implementation("uz.dkamaloff.libs:collections:$libs_version")
 implementation("uz.dkamaloff.libs:ktorm-postgresql:$libs_version")
 implementation("uz.dkamaloff.libs:toothpick-file-properties:$libs_version")
+implementation("uz.dkamaloff.libs:toothpick-viewmodel-ext:$libs_version")
 implementation("uz.dkamaloff.libs:paycom-android:$libs_version")
 implementation("uz.dkamaloff.libs:paycom-server:$libs_version")
 ```
